@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concept Arquitectos — Architecture as Experience</title>
+  <meta name="description" content="Concept Arquitectos — Contemporary architecture studio. We design spaces that challenge perception and transform the way we inhabit the world." />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" />
+</head>
+<body>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- GRID OVERLAY -->
+  <div class="grid-overlay" id="gridOverlay" aria-hidden="true">
+    <div class="grid-overlay-inner">
+      <div class="grid-col"></div><div class="grid-col"></div>
+      <div class="grid-col"></div><div class="grid-col"></div>
+      <div class="grid-col"></div><div class="grid-col"></div>
+      <div class="grid-col"></div><div class="grid-col"></div>
+      <div class="grid-col"></div><div class="grid-col"></div>
+      <div class="grid-col"></div><div class="grid-col"></div>
+    </div>
+  </div>
+  <button class="grid-toggle" id="gridToggle">Grid</button>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════════════ -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav-logo" aria-label="Concept Arquitectos home">
+      <img class="logo-v-light" src="images/logo-light.png" alt="Concept Arquitectos" />
+      <img class="logo-v-dark"  src="images/logo-dark.jpg"  alt="" aria-hidden="true"/>
+    </a>
+    <div class="nav-controls">
+      <!-- Language Toggle -->
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+        <span class="lang-opt is-active" data-lang="en">EN</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-opt" data-lang="pt">PT</span>
+      </button>
+      <!-- Theme Toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+        <span class="theme-icon theme-icon--dark">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <path d="M13.5 10.5A6 6 0 0 1 5.5 2.5a6 6 0 1 0 8 8z"/>
+          </svg>
+        </span>
+        <span class="theme-icon theme-icon--light" style="display:none">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <circle cx="8" cy="8" r="3"/>
+            <line x1="8" y1="1" x2="8" y2="3"/><line x1="8" y1="13" x2="8" y2="15"/>
+            <line x1="1" y1="8" x2="3" y2="8"/><line x1="13" y1="8" x2="15" y2="8"/>
+            <line x1="3.2" y1="3.2" x2="4.6" y2="4.6"/><line x1="11.4" y1="11.4" x2="12.8" y2="12.8"/>
+            <line x1="12.8" y1="3.2" x2="11.4" y2="4.6"/><line x1="4.6" y1="11.4" x2="3.2" y2="12.8"/>
+          </svg>
+        </span>
+      </button>
+      <!-- Menu -->
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- OVERLAY NAV -->
+  <div class="overlay-nav" id="overlayNav" role="dialog" aria-modal="true" aria-label="Main menu">
+    <div class="overlay-nav-left">
+      <ul class="overlay-nav-links">
+        <li><a href="#about"    class="nav-link-item" data-i18n="nav.studio">Studio</a></li>
+        <li><a href="#projects" class="nav-link-item" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#team"     class="nav-link-item" data-i18n="nav.team">Team</a></li>
+        <li><a href="#services" class="nav-link-item" data-i18n="nav.services">Services</a></li>
+        <li><a href="#contact"  class="nav-link-item" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="overlay-nav-meta">
+        <span>© 2024</span>
+        <span>Portimão, Portugal</span>
+      </div>
+    </div>
+    <div class="overlay-nav-right">
+      <p data-i18n="nav.desc">We design spaces that challenge perception and transform the way human beings inhabit the world.</p>
+      <span class="contact-line">geral@conceptarquitectos.com</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="hero-bg">
+      <video class="hero-bg-video" autoplay muted loop playsinline aria-hidden="true" poster="images/1776503986079.jpg">
+        <source src="videos/v2Concept Arquitectos Portimão Atlantic Terraces.mp4" type="video/mp4">
+      </video>
+      <img class="hero-bg-img hero-bg-img--fallback" src="images/1776503986079.jpg" alt="" aria-hidden="true"/>
+      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <!-- HERO GRADIENT WAVE EFFECT -->
+    <div class="hero-wave" aria-hidden="true"></div>
+
+    <!-- HERO ARCHITECTURAL ELEVATION GRAPHIC -->
+    <div class="hero-arch-graphic" aria-hidden="true">
+      <svg class="arch-svg" viewBox="0 0 520 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- G1: Main outlines — draw-in first -->
+        <g class="arch-g1">
+          <path pathLength="1" d="M0,668 L520,668"/>
+          <path pathLength="1" d="M0,681 L520,681"/>
+          <path pathLength="1" d="M110,55 L410,55 L410,668 L110,668 Z"/>
+          <path pathLength="1" d="M172,18 L348,18 L348,55 L172,55 Z"/>
+          <path pathLength="1" d="M110,363 L62,363 L62,440 L110,440"/>
+          <path pathLength="1" d="M410,363 L458,363 L458,440 L410,440"/>
+        </g>
+
+        <!-- G2: Structural grid — draw-in delayed -->
+        <g class="arch-g2">
+          <path pathLength="1" d="M110,132 L410,132"/>
+          <path pathLength="1" d="M110,209 L410,209"/>
+          <path pathLength="1" d="M110,286 L410,286"/>
+          <path pathLength="1" d="M110,363 L410,363"/>
+          <path pathLength="1" d="M110,440 L410,440"/>
+          <path pathLength="1" d="M110,517 L410,517"/>
+          <path pathLength="1" d="M110,594 L410,594"/>
+          <path pathLength="1" d="M185,55 L185,668"/>
+          <path pathLength="1" d="M260,55 L260,668"/>
+          <path pathLength="1" d="M335,55 L335,668"/>
+          <path pathLength="1" d="M172,27 L348,27"/>
+          <path pathLength="1" d="M172,38 L348,38"/>
+          <path pathLength="1" d="M172,48 L348,48"/>
+        </g>
+
+        <!-- G3: Wall indication — fade in -->
+        <g class="arch-g3">
+          <rect x="110" y="55" width="56" height="539" fill="rgba(207,198,184,0.06)"/>
+          <rect x="354" y="55" width="56" height="539" fill="rgba(207,198,184,0.06)"/>
+        </g>
+
+        <!-- G4: Window grid 7 rows × 4 cols — fade in -->
+        <g class="arch-g4">
+          <rect x="166" y="77"  width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="216" y="77"  width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="266" y="77"  width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="316" y="77"  width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="166" y="154" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="216" y="154" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="266" y="154" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="316" y="154" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="166" y="231" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="216" y="231" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="266" y="231" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="316" y="231" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="166" y="308" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="216" y="308" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="266" y="308" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="316" y="308" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="166" y="385" width="38" height="32" fill="rgba(207,198,184,0.13)"/>
+          <rect x="216" y="385" width="38" height="32" fill="rgba(207,198,184,0.13)"/>
+          <rect x="266" y="385" width="38" height="32" fill="rgba(207,198,184,0.13)"/>
+          <rect x="316" y="385" width="38" height="32" fill="rgba(207,198,184,0.13)"/>
+          <rect x="166" y="462" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="216" y="462" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="266" y="462" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="316" y="462" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="166" y="539" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="216" y="539" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="266" y="539" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+          <rect x="316" y="539" width="38" height="32" fill="rgba(207,198,184,0.07)"/>
+        </g>
+
+        <!-- G5: Annotations — fade in last -->
+        <g class="arch-g5">
+          <path d="M72,55 L72,668"/>
+          <path d="M66,55 L78,55"/>
+          <path d="M66,668 L78,668"/>
+          <path d="M72,55 L110,55" stroke-dasharray="4 3" opacity="0.4"/>
+          <path d="M72,668 L110,668" stroke-dasharray="4 3" opacity="0.4"/>
+          <text x="67" y="368" font-size="8" text-anchor="middle" transform="rotate(-90,67,368)">18.50 m</text>
+          <path d="M110,702 L410,702"/>
+          <path d="M110,696 L110,708"/>
+          <path d="M410,696 L410,708"/>
+          <text x="260" y="718" font-size="8" text-anchor="middle">30.00 m</text>
+          <path d="M410,55  L420,55"/>
+          <path d="M410,132 L420,132"/>
+          <path d="M410,209 L420,209"/>
+          <path d="M410,286 L420,286"/>
+          <path d="M410,363 L420,363"/>
+          <path d="M410,440 L420,440"/>
+          <path d="M410,517 L420,517"/>
+          <path d="M410,594 L420,594"/>
+          <path d="M410,668 L420,668"/>
+          <text x="424" y="58"  font-size="7">+21.0</text>
+          <text x="424" y="135" font-size="7">+18.0</text>
+          <text x="424" y="212" font-size="7">+15.0</text>
+          <text x="424" y="289" font-size="7">+12.0</text>
+          <text x="424" y="366" font-size="7">+9.0</text>
+          <text x="424" y="443" font-size="7">+6.0</text>
+          <text x="424" y="520" font-size="7">+3.5</text>
+          <text x="424" y="597" font-size="7">±0.00</text>
+          <circle cx="185" cy="46" r="5" fill="rgba(0,0,0,0.4)"/>
+          <circle cx="260" cy="46" r="5" fill="rgba(0,0,0,0.4)"/>
+          <circle cx="335" cy="46" r="5" fill="rgba(0,0,0,0.4)"/>
+          <path d="M185,8 L185,41" stroke-dasharray="3 2" opacity="0.35"/>
+          <path d="M260,8 L260,41" stroke-dasharray="3 2" opacity="0.35"/>
+          <path d="M335,8 L335,41" stroke-dasharray="3 2" opacity="0.35"/>
+          <text x="185" y="49" font-size="6" text-anchor="middle">B</text>
+          <text x="260" y="49" font-size="6" text-anchor="middle">C</text>
+          <text x="335" y="49" font-size="6" text-anchor="middle">D</text>
+          <text x="260" y="9"  font-size="8.5" text-anchor="middle" letter-spacing="3" fill="rgba(207,198,184,0.7)" stroke="none">NORTH ELEVATION</text>
+          <path d="M192,730 L328,730"/>
+          <path d="M192,726 L192,734"/>
+          <path d="M260,726 L260,734"/>
+          <path d="M328,726 L328,734"/>
+          <text x="226" y="742" font-size="6.5" text-anchor="middle">0      15</text>
+          <text x="294" y="742" font-size="6.5" text-anchor="middle">30 m</text>
+          <text x="260" y="751" font-size="6" text-anchor="middle" opacity="0.55">SCALE 1:200</text>
+          <circle cx="185" cy="132" r="2" fill="rgba(255,255,255,0.28)" stroke="none"/>
+          <circle cx="260" cy="132" r="2" fill="rgba(255,255,255,0.28)" stroke="none"/>
+          <circle cx="335" cy="132" r="2" fill="rgba(255,255,255,0.28)" stroke="none"/>
+          <circle cx="185" cy="363" r="2" fill="rgba(255,255,255,0.28)" stroke="none"/>
+          <circle cx="260" cy="363" r="2" fill="rgba(255,255,255,0.28)" stroke="none"/>
+          <circle cx="335" cy="363" r="2" fill="rgba(255,255,255,0.28)" stroke="none"/>
+          <circle cx="185" cy="440" r="2" fill="rgba(255,255,255,0.28)" stroke="none"/>
+          <circle cx="260" cy="440" r="2" fill="rgba(255,255,255,0.28)" stroke="none"/>
+          <circle cx="335" cy="440" r="2" fill="rgba(255,255,255,0.28)" stroke="none"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- HERO HOUSE / VILLA ELEVATION DRAWING -->
+    <div class="hero-house-graphic" aria-hidden="true">
+      <svg class="house-svg" viewBox="0 0 580 370" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- HG1: Main structure — draw first -->
+        <g class="house-g1">
+          <path pathLength="1" d="M0,278 L580,278"/>
+          <path pathLength="1" d="M0,291 L580,291"/>
+          <path pathLength="1" d="M65,278 L65,112 L478,112 L478,278"/>
+          <path pathLength="1" d="M48,110 L495,110"/>
+          <path pathLength="1" d="M195,112 L195,72 L365,72 L365,112"/>
+          <path pathLength="1" d="M182,70 L378,70"/>
+          <path pathLength="1" d="M0,278 L0,185 L65,185"/>
+          <path pathLength="1" d="M478,248 L555,248 L555,278"/>
+        </g>
+
+        <!-- HG2: Windows and openings — draw second -->
+        <g class="house-g2">
+          <path pathLength="1" d="M82,130 L82,218 L168,218 L168,130 Z"/>
+          <path pathLength="1" d="M125,130 L125,218"/>
+          <path pathLength="1" d="M206,112 L206,277 L344,277 L344,112"/>
+          <path pathLength="1" d="M231,112 L231,277"/>
+          <path pathLength="1" d="M258,112 L258,277"/>
+          <path pathLength="1" d="M316,112 L316,277"/>
+          <path pathLength="1" d="M372,130 L372,218 L462,218 L462,130 Z"/>
+          <path pathLength="1" d="M417,130 L417,218"/>
+          <path pathLength="1" d="M208,78 L208,104 L342,104 L342,78 Z"/>
+        </g>
+
+        <!-- HG3: Pool and terrace — draw third -->
+        <g class="house-g3">
+          <path pathLength="1" d="M68,279 L480,279"/>
+          <path pathLength="1" d="M98,291 L98,330 L432,330 L432,291"/>
+        </g>
+
+        <!-- HG4: Landscape and water (fade) -->
+        <g class="house-g4">
+          <circle cx="20"  cy="248" r="26"/>
+          <circle cx="30"  cy="263" r="15"/>
+          <circle cx="558" cy="242" r="23"/>
+          <circle cx="572" cy="257" r="14"/>
+          <path d="M102,311 L428,311" stroke-dasharray="10 4"/>
+        </g>
+
+        <!-- HG5: Annotations (fade last) -->
+        <g class="house-g5">
+          <path d="M32,112 L32,278"/>
+          <path d="M26,112 L38,112"/>
+          <path d="M26,278 L38,278"/>
+          <path d="M32,112 L65,112" stroke-dasharray="4 3" opacity="0.4"/>
+          <path d="M32,278 L65,278" stroke-dasharray="4 3" opacity="0.4"/>
+          <text x="27" y="202" font-size="7.5" text-anchor="middle" transform="rotate(-90,27,202)">7.50 m</text>
+          <path d="M65,347 L478,347"/>
+          <path d="M65,341 L65,353"/>
+          <path d="M478,341 L478,353"/>
+          <text x="271" y="360" font-size="7.5" text-anchor="middle">21.00 m</text>
+          <path d="M48,185 L58,185"/>
+          <text x="44" y="188" font-size="6.5" text-anchor="end">+6.0</text>
+          <path d="M48,248 L58,248"/>
+          <text x="44" y="251" font-size="6.5" text-anchor="end">+3.5</text>
+          <text x="271" y="14" font-size="8.5" text-anchor="middle" letter-spacing="3" fill="rgba(207,198,184,0.68)" stroke="none">SOUTH ELEVATION</text>
+          <text x="271" y="368" font-size="6" text-anchor="middle" opacity="0.55">SCALE 1:100</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- HERO SITE PLAN — TOPOGRAPHIC DRAWING (CENTER) -->
+    <div class="hero-plan-graphic" aria-hidden="true">
+      <svg class="plan-svg" viewBox="-20 -20 460 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- PG1: Topographic contour lines — draw outermost to innermost -->
+        <g class="plan-g1">
+          <path pathLength="1" d="M80,20 C60,5 340,0 400,25 C430,55 430,340 400,400 C360,430 50,420 20,380 C-15,330 -5,50 80,20 Z"/>
+          <path pathLength="1" d="M100,50 C80,35 328,30 372,60 C402,90 402,312 368,360 C334,394 68,384 38,345 C5,298 10,80 100,50 Z"/>
+          <path pathLength="1" d="M125,80 C108,65 308,60 348,92 C374,120 374,285 340,324 C306,358 98,348 70,306 C40,260 45,108 125,80 Z"/>
+          <path pathLength="1" d="M150,108 C135,96 290,93 322,122 C346,150 346,264 314,292 C282,320 130,310 104,268 C78,226 78,130 150,108 Z"/>
+          <path pathLength="1" d="M172,138 C160,124 272,124 298,150 C318,174 318,242 295,266 C268,290 162,282 140,250 C118,218 118,160 172,138 Z"/>
+        </g>
+
+        <!-- PG2: Building footprint — draws after topo lines -->
+        <g class="plan-g2">
+          <path pathLength="1" d="M162,152 L298,152 L298,258 L162,258 Z"/>
+          <path pathLength="1" d="M222,120 L298,120 L298,152"/>
+          <path pathLength="1" d="M298,162 L326,162 L326,248 L298,248"/>
+          <path pathLength="1" d="M162,258 L326,258 L326,272 L162,272 Z"/>
+        </g>
+
+        <!-- PG3: Interior divisions and facade detail -->
+        <g class="plan-g3">
+          <path pathLength="1" d="M162,200 L298,200"/>
+          <path pathLength="1" d="M230,152 L230,258"/>
+          <path pathLength="1" d="M310,162 L310,248"/>
+          <path pathLength="1" d="M318,162 L318,248"/>
+          <path pathLength="1" d="M162,258 L298,258" stroke-dasharray="5 3"/>
+        </g>
+
+        <!-- PG4: Annotations (fade) -->
+        <g class="plan-g4">
+          <path d="M370,55 L370,28"/>
+          <path d="M363,35 L370,25 L377,35"/>
+          <text x="370" y="65" font-size="9" text-anchor="middle">N</text>
+          <path d="M55,405 L155,405"/>
+          <path d="M55,400 L55,410"/>
+          <path d="M105,400 L105,410"/>
+          <path d="M155,400 L155,410"/>
+          <text x="105" y="419" font-size="6.5" text-anchor="middle">5       10 m</text>
+          <text x="12" y="195" font-size="6.5" opacity="0.5">+25.0</text>
+          <text x="22" y="210" font-size="6"   opacity="0.4">+20.0</text>
+          <text x="38" y="222" font-size="6"   opacity="0.35">+15.0</text>
+          <text x="57" y="232" font-size="6"   opacity="0.3">+10.0</text>
+          <text x="82" y="238" font-size="6"   opacity="0.25">+5.0</text>
+          <text x="210" y="-7" font-size="9" text-anchor="middle" letter-spacing="3" fill="rgba(207,198,184,0.72)" stroke="none">SITE PLAN</text>
+          <text x="210" y="432" font-size="6" text-anchor="middle" opacity="0.5">SCALE 1:200</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- HERO FRAME CORNERS -->
+    <div class="hero-frame" aria-hidden="true">
+      <span class="hero-frame-corner hfc-tl"></span>
+      <span class="hero-frame-corner hfc-tr"></span>
+      <span class="hero-frame-corner hfc-bl"></span>
+      <span class="hero-frame-corner hfc-br"></span>
+    </div>
+
+    <!-- HERO SCAN LINE -->
+    <div class="hero-scanline" aria-hidden="true"></div>
+
+    <!-- HERO SONAR RINGS (at perspective VP) -->
+    <div class="hero-sonar" aria-hidden="true">
+      <span class="hero-sonar-ring"></span>
+      <span class="hero-sonar-ring"></span>
+      <span class="hero-sonar-ring"></span>
+    </div>
+
+    <!-- HERO HUD DATA TAGS -->
+    <div class="hero-hud" aria-hidden="true">
+      <span class="hero-hud-tag hero-hud-tl">
+        <span class="hud-dot"></span>
+        <span class="hud-line">LAT · 37°08′N · LON · 8°32′O</span>
+      </span>
+      <span class="hero-hud-tag hero-hud-tr">
+        <span class="hud-line">EST. 2010 — NR. 002</span>
+        <span class="hud-dot"></span>
+      </span>
+    </div>
+
+    <!-- HERO PERSPECTIVE FLOOR GRID -->
+    <div class="hero-persp-graphic" aria-hidden="true">
+      <svg class="persp-svg" viewBox="0 0 1400 260" fill="none" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- PerspG1: Primary radiating lines -->
+        <g class="persp-g1">
+          <line pathLength="1" x1="0"    y1="260" x2="700" y2="0"/>
+          <line pathLength="1" x1="280"  y1="260" x2="700" y2="0"/>
+          <line pathLength="1" x1="560"  y1="260" x2="700" y2="0"/>
+          <line pathLength="1" x1="700"  y1="260" x2="700" y2="0"/>
+          <line pathLength="1" x1="840"  y1="260" x2="700" y2="0"/>
+          <line pathLength="1" x1="1120" y1="260" x2="700" y2="0"/>
+          <line pathLength="1" x1="1400" y1="260" x2="700" y2="0"/>
+        </g>
+
+        <!-- PerspG2: Secondary radiating lines (thinner) -->
+        <g class="persp-g2">
+          <line pathLength="1" x1="140"  y1="260" x2="700" y2="0"/>
+          <line pathLength="1" x1="420"  y1="260" x2="700" y2="0"/>
+          <line pathLength="1" x1="630"  y1="260" x2="700" y2="0"/>
+          <line pathLength="1" x1="770"  y1="260" x2="700" y2="0"/>
+          <line pathLength="1" x1="980"  y1="260" x2="700" y2="0"/>
+          <line pathLength="1" x1="1260" y1="260" x2="700" y2="0"/>
+        </g>
+
+        <!-- PerspG3: Horizontal cross-section lines (perspective-correct bounds) -->
+        <g class="persp-g3">
+          <line x1="0"   y1="260" x2="1400" y2="260"/>
+          <line x1="67"  y1="235" x2="1333" y2="235"/>
+          <line x1="127" y1="213" x2="1273" y2="213"/>
+          <line x1="178" y1="194" x2="1222" y2="194"/>
+          <line x1="226" y1="176" x2="1174" y2="176"/>
+          <line x1="269" y1="160" x2="1131" y2="160"/>
+          <line x1="310" y1="145" x2="1090" y2="145"/>
+          <line x1="345" y1="132" x2="1055" y2="132"/>
+          <line x1="377" y1="120" x2="1023" y2="120"/>
+        </g>
+
+        <!-- PerspG4: VP marker and horizon label -->
+        <g class="persp-g4">
+          <line x1="580" y1="0" x2="820" y2="0" stroke-dasharray="5 3"/>
+          <circle cx="700" cy="0" r="3.5" fill="rgba(207,198,184,0.5)" stroke="none"/>
+          <text x="708" y="10" font-size="7" font-family="Space Mono, monospace" opacity="0.55">V.P.</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- HERO STAIRCASE SECTION DETAIL -->
+    <div class="hero-stair-graphic" aria-hidden="true">
+      <svg class="stair-svg" viewBox="-28 0 310 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- StairG1: Tread slabs (filled rects) -->
+        <g class="stair-g1">
+          <rect pathLength="1" x="8"   y="288" width="42" height="5" fill="rgba(207,198,184,0.08)"/>
+          <rect pathLength="1" x="50"  y="254" width="42" height="5" fill="rgba(207,198,184,0.08)"/>
+          <rect pathLength="1" x="92"  y="220" width="42" height="5" fill="rgba(207,198,184,0.08)"/>
+          <rect pathLength="1" x="134" y="186" width="42" height="5" fill="rgba(207,198,184,0.08)"/>
+          <rect pathLength="1" x="176" y="152" width="42" height="5" fill="rgba(207,198,184,0.08)"/>
+          <rect pathLength="1" x="218" y="118" width="42" height="5" fill="rgba(207,198,184,0.08)"/>
+        </g>
+
+        <!-- StairG2: Continuous nosing/riser outline -->
+        <g class="stair-g2">
+          <path pathLength="1" d="M8,288 L50,288 L50,254 L92,254 L92,220 L134,220 L134,186 L176,186 L176,152 L218,152 L218,118 L260,118"/>
+        </g>
+
+        <!-- StairG3: Structural supports + ground -->
+        <g class="stair-g3">
+          <line pathLength="1" x1="8"   y1="293" x2="8"   y2="314"/>
+          <line pathLength="1" x1="50"  y1="259" x2="50"  y2="314"/>
+          <line pathLength="1" x1="92"  y1="225" x2="92"  y2="314"/>
+          <line pathLength="1" x1="134" y1="191" x2="134" y2="314"/>
+          <line pathLength="1" x1="176" y1="157" x2="176" y2="314"/>
+          <line pathLength="1" x1="218" y1="123" x2="218" y2="314"/>
+          <line pathLength="1" x1="0"   y1="314" x2="274" y2="314"/>
+        </g>
+
+        <!-- StairG4: Handrail -->
+        <g class="stair-g4">
+          <line pathLength="1" x1="20" y1="270" x2="248" y2="100"/>
+          <circle cx="20"  cy="270" r="4" fill="rgba(207,198,184,0.25)" stroke-width="0.75"/>
+          <circle cx="248" cy="100" r="4" fill="rgba(207,198,184,0.25)" stroke-width="0.75"/>
+        </g>
+
+        <!-- StairG5: Dimension annotations -->
+        <g class="stair-g5">
+          <line x1="-14" y1="293" x2="-14" y2="118"/>
+          <line x1="-20" y1="293" x2="-8" y2="293"/>
+          <line x1="-20" y1="118" x2="-8" y2="118"/>
+          <text x="-18" y="212" font-size="7" text-anchor="middle" transform="rotate(-90,-18,212)">5.80 m</text>
+          <path d="M8,328 L260,328" stroke-dasharray="none"/>
+          <line x1="8"   y1="322" x2="8"   y2="334"/>
+          <line x1="260" y1="322" x2="260" y2="334"/>
+          <text x="134" y="338" font-size="7" text-anchor="middle">10.80 m</text>
+          <text x="134" y="14"  font-size="8" text-anchor="middle" letter-spacing="2.5" fill="rgba(207,198,184,0.7)" stroke="none">STAIR SECTION</text>
+          <text x="134" y="26"  font-size="6" text-anchor="middle" opacity="0.45">SCALE 1:50</text>
+          <line x1="8"   y1="280" x2="8"   y2="40" stroke-dasharray="3 2" opacity="0.22"/>
+          <line x1="260" y1="110" x2="260" y2="40" stroke-dasharray="3 2" opacity="0.22"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-label" data-i18n="hero.label">Architecture Studio · Est. 2010</p>
+      <h1 class="hero-headline" data-i18n-html="hero.headline">
+        Where<br/><em>Space</em><br/>Thinks
+      </h1>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="hero-scroll-hint">
+        <div class="scroll-line"></div>
+        <span data-i18n="hero.scroll">Explore</span>
+      </div>
+      <a href="#projects" class="hero-cta" aria-label="View projects">
+        <span data-i18n="hero.cta">View Projects</span>
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M1 13L13 1M13 1H4M13 1v9"/>
+        </svg>
+      </a>
+      <div class="hero-coords" aria-label="Studio coordinates">
+        37°08′N 8°32′O<br/>
+        Portimão<br/>
+        <span data-i18n="hero.country">Portugal</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MARQUEE -->
+  <div class="marquee-section" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-item"><span data-i18n="marquee.1">Architecture</span> <span class="dot"></span></div>
+      <div class="marquee-item"><span data-i18n="marquee.2">Interior Design</span> <span class="dot"></span></div>
+      <div class="marquee-item"><span data-i18n="marquee.3">Urbanism</span> <span class="dot"></span></div>
+      <div class="marquee-item"><span data-i18n="marquee.4">Landscaping</span> <span class="dot"></span></div>
+      <div class="marquee-item"><span data-i18n="marquee.5">Consulting</span> <span class="dot"></span></div>
+      <div class="marquee-item"><span data-i18n="marquee.6">Brand Architecture</span> <span class="dot"></span></div>
+      <div class="marquee-item"><span data-i18n="marquee.7">Sustainable Design</span> <span class="dot"></span></div>
+      <div class="marquee-item"><span data-i18n="marquee.1">Architecture</span> <span class="dot"></span></div>
+      <div class="marquee-item"><span data-i18n="marquee.2">Interior Design</span> <span class="dot"></span></div>
+      <div class="marquee-item"><span data-i18n="marquee.3">Urbanism</span> <span class="dot"></span></div>
+      <div class="marquee-item"><span data-i18n="marquee.4">Landscaping</span> <span class="dot"></span></div>
+      <div class="marquee-item"><span data-i18n="marquee.5">Consulting</span> <span class="dot"></span></div>
+      <div class="marquee-item"><span data-i18n="marquee.6">Brand Architecture</span> <span class="dot"></span></div>
+      <div class="marquee-item"><span data-i18n="marquee.7">Sustainable Design</span> <span class="dot"></span></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════════ -->
+  <section class="about" id="about" aria-label="About the studio">
+    <div class="about-grid">
+      <div class="about-left reveal-left">
+        <div class="about-number">01</div>
+        <div class="about-side-label" data-i18n="about.side">Studio Philosophy</div>
+      </div>
+      <div class="about-right">
+        <p class="section-label reveal" data-i18n="about.label">About Us</p>
+        <h2 class="about-statement reveal" data-i18n-html="about.headline">
+          We build<br/><span class="accent">beyond</span><br/>walls
+        </h2>
+        <div class="about-body stagger">
+          <p data-i18n="about.p1">We don't design buildings. We create experience systems. Each project is an investigation into how human beings perceive, inhabit and feel the space that contains them.</p>
+          <p data-i18n="about.p2">Our process begins from the productive tension between constructive reason and poetic intuition. Between what the client needs and what they don't yet know they want.</p>
+        </div>
+        <div class="about-stats stagger">
+          <div class="stat-item">
+            <div class="stat-number">14<span class="accent">+</span></div>
+            <div class="stat-label" data-i18n="about.stat1">Years of practice</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">87</div>
+            <div class="stat-label" data-i18n="about.stat2">Completed projects</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">12</div>
+            <div class="stat-label" data-i18n="about.stat3">International awards</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">9</div>
+            <div class="stat-label" data-i18n="about.stat4">Countries of work</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <svg style="position:absolute;bottom:0;right:3rem;width:300px;height:200px;opacity:0.15;" viewBox="0 0 300 200" aria-hidden="true">
+      <line class="arch-line" x1="0" y1="200" x2="300" y2="200"/>
+      <line class="arch-line" x1="50" y1="200" x2="50" y2="50"/>
+      <line class="arch-line" x1="50" y1="50" x2="200" y2="50"/>
+      <line class="arch-line" x1="200" y1="50" x2="200" y2="120"/>
+      <line class="arch-line" x1="200" y1="120" x2="300" y2="120"/>
+      <rect class="arch-line" x="80" y="130" width="60" height="70"/>
+      <rect class="arch-line" x="155" y="150" width="30" height="50"/>
+    </svg>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PROJECTS
+  ════════════════════════════════════════════ -->
+  <section class="projects" id="projects" aria-label="Featured projects">
+    <div class="projects-header">
+      <h2 class="projects-title reveal-left" data-i18n="projects.title">Projects</h2>
+      <span class="projects-count reveal-right" data-i18n="projects.count">08 selected</span>
+    </div>
+
+    <div class="projects-grid" role="list">
+
+      <article class="project-card reveal-scale" role="listitem" data-project="0" tabindex="0" aria-label="Open Sky Residence">
+        <img class="project-img" src="images/470571901_9114091031990644_3914962260874532592_n.jpg" alt="Open Sky Residence — exterior" />
+        <div class="project-overlay"></div>
+        <div class="project-hover-cta" data-i18n="projects.cta">View Project</div>
+        <div class="project-info">
+          <p class="project-tag"><span data-i18n="tag.residential">Residential</span> · 2023</p>
+          <h3 class="project-name" data-i18n="proj0.title">Open Sky Residence</h3>
+          <p class="project-location">Punta Cana, Dominican Republic</p>
+        </div>
+      </article>
+
+      <article class="project-card reveal-scale" role="listitem" data-project="1" tabindex="0" aria-label="Vértice Tower">
+        <img class="project-img" src="images/471158464_9114091275323953_2797154666458548224_n.jpg" alt="Vértice Tower — facade" />
+        <div class="project-overlay"></div>
+        <div class="project-hover-cta" data-i18n="projects.cta">View Project</div>
+        <div class="project-info">
+          <p class="project-tag"><span data-i18n="tag.corporate">Corporate</span> · 2022</p>
+          <h3 class="project-name" data-i18n="proj1.title">Vértice Tower</h3>
+          <p class="project-location">Santiago, Dominican Republic</p>
+        </div>
+      </article>
+
+      <article class="project-card reveal-scale" role="listitem" data-project="2" tabindex="0" aria-label="Root Pavilion">
+        <img class="project-img" src="images/130824417_3738645486201919_8523422455263461037_n.jpg" alt="Root Pavilion — inner courtyard" />
+        <div class="project-overlay"></div>
+        <div class="project-hover-cta" data-i18n="projects.cta">View Project</div>
+        <div class="project-info">
+          <p class="project-tag"><span data-i18n="tag.cultural">Cultural</span> · 2023</p>
+          <h3 class="project-name" data-i18n="proj2.title">Root Pavilion</h3>
+          <p class="project-location">Jarabacoa, Dominican Republic</p>
+        </div>
+      </article>
+
+      <article class="project-card reveal-scale" role="listitem" data-project="3" tabindex="0" aria-label="Casa Umbra">
+        <img class="project-img" src="images/130923255_3738645492868585_1490597373984909298_n.jpg" alt="Casa Umbra — brutalist facade" />
+        <div class="project-overlay"></div>
+        <div class="project-hover-cta" data-i18n="projects.cta">View Project</div>
+        <div class="project-info">
+          <p class="project-tag"><span data-i18n="tag.residential">Residential</span> · 2021</p>
+          <h3 class="project-name" data-i18n="proj3.title">Casa Umbra</h3>
+          <p class="project-location">Las Terrenas, Dominican Republic</p>
+        </div>
+      </article>
+
+      <article class="project-card reveal-scale" role="listitem" data-project="4" tabindex="0" aria-label="Quórum Centre">
+        <img class="project-img" src="images/131095912_3738645562868578_8281928021500282238_n.jpg" alt="Quórum Centre — interior space" />
+        <div class="project-overlay"></div>
+        <div class="project-hover-cta" data-i18n="projects.cta">View Project</div>
+        <div class="project-info">
+          <p class="project-tag"><span data-i18n="tag.institutional">Institutional</span> · 2022</p>
+          <h3 class="project-name" data-i18n="proj4.title">Quórum Centre</h3>
+          <p class="project-location">Miami, United States</p>
+        </div>
+      </article>
+
+      <!-- Card 6: Villa in Vale de Milho -->
+      <article class="project-card reveal-scale" role="listitem" data-project="5" tabindex="0" aria-label="Villa Vale de Milho">
+        <img class="project-img" src="images/Villa in Vale de Milho-2026-04-18 024833.jpg" alt="Villa Vale de Milho — exterior view" />
+        <div class="project-overlay"></div>
+        <div class="project-hover-cta" data-i18n="projects.cta">View Project</div>
+        <div class="project-info">
+          <p class="project-tag"><span data-i18n="tag.residential">Residential</span> · 2024</p>
+          <h3 class="project-name" data-i18n="proj5.title">Villa Vale de Milho</h3>
+          <p class="project-location">Carvoeiro, Algarve, Portugal</p>
+        </div>
+      </article>
+
+      <!-- Card 7: full-width -->
+      <article class="project-card reveal-scale" role="listitem" data-project="6" tabindex="0" aria-label="Algarve Residence" style="grid-column:1/-1;aspect-ratio:21/6;border-top:1px solid var(--gray-md);">
+        <img class="project-img" src="images/2026-04-18 025154.jpg" alt="Algarve Residence — panoramic view" />
+        <div class="project-overlay"></div>
+        <div class="project-hover-cta" data-i18n="projects.cta">View Project</div>
+        <div class="project-info">
+          <p class="project-tag"><span data-i18n="tag.residential">Residential</span> · 2025</p>
+          <h3 class="project-name" data-i18n="proj6.title">Algarve Residence</h3>
+          <p class="project-location">Portimão, Algarve, Portugal</p>
+        </div>
+      </article>
+
+      <!-- Card 8: Portimão Atlantic Terraces — Video Project -->
+      <article class="project-card project-card--video reveal-scale" role="listitem" data-project="7" tabindex="0" aria-label="Portimão Atlantic Terraces">
+        <img class="project-img" src="https://img.youtube.com/vi/pOThdhPi3pw/maxresdefault.jpg" alt="Portimão Atlantic Terraces — aerial view" />
+        <div class="project-overlay"></div>
+        <div class="project-video-badge" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="12" height="12" aria-hidden="true"><polygon points="5,3 17,10 5,17"/></svg>
+          <span>Film</span>
+        </div>
+        <div class="project-hover-cta" data-i18n="projects.cta">View Project</div>
+        <div class="project-info">
+          <p class="project-tag"><span data-i18n="tag.residential">Residential</span> · 2024</p>
+          <h3 class="project-name" data-i18n="proj7.title">Portimão Atlantic Terraces</h3>
+          <p class="project-location">Portimão, Algarve, Portugal</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PROJECT MODAL
+  ════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-label="Project detail">
+    <button class="modal-close" id="modalClose" aria-label="Close"></button>
+    <div class="modal-inner" id="modalInner"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       TEAM
+  ════════════════════════════════════════════ -->
+  <section class="team" id="team" aria-label="Our team">
+    <div class="team-header">
+      <p class="section-label reveal" data-i18n="team.label">Who We Are</p>
+      <h2 class="team-title reveal" data-i18n="team.title">Team</h2>
+    </div>
+
+    <div class="team-scroll" role="list">
+
+      <!-- João Paulino -->
+      <article class="team-card" role="listitem">
+        <span class="team-card-index">01</span>
+        <div class="team-portrait">
+          <img class="team-portrait-bg team-portrait-img" src="images/João_Paulino.png" alt="João Paulino" />
+          <div class="team-portrait-overlay"></div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">João Paulino</h3>
+          <p class="team-role" data-i18n="team.role1">Director · Founder</p>
+        </div>
+      </article>
+
+      <!-- Rodolfo Vieira -->
+      <article class="team-card" role="listitem">
+        <span class="team-card-index">02</span>
+        <div class="team-portrait">
+          <img class="team-portrait-bg team-portrait-img" src="images/Rodolfo_Vieira.png" alt="Rodolfo Vieira" />
+          <div class="team-portrait-overlay"></div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">Rodolfo Vieira</h3>
+          <p class="team-role" data-i18n="team.role2">Design Director</p>
+        </div>
+      </article>
+
+      <!-- Rui Algarve -->
+      <article class="team-card" role="listitem">
+        <span class="team-card-index">03</span>
+        <div class="team-portrait">
+          <img class="team-portrait-bg team-portrait-img" src="images/rui_algarve.png" alt="Rui Algarve" />
+          <div class="team-portrait-overlay"></div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">Rui Algarve</h3>
+          <p class="team-role" data-i18n="team.role3">Senior Architect</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SERVICES
+  ════════════════════════════════════════════ -->
+  <section class="services" id="services" aria-label="Services">
+    <div class="services-inner">
+      <p class="section-label reveal" data-i18n="services.label">What We Do</p>
+      <h2 class="services-title reveal" data-i18n="services.title">Services</h2>
+
+      <div class="services-grid stagger">
+
+        <div class="service-item">
+          <span class="service-number">01</span>
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <rect x="4" y="8" width="40" height="32"/><line x1="4" y1="18" x2="44" y2="18"/>
+            <line x1="24" y1="8" x2="24" y2="40"/><line x1="14" y1="8" x2="14" y2="18"/>
+            <circle cx="24" cy="40" r="3" fill="currentColor" stroke="none"/>
+          </svg>
+          <h3 class="service-name" data-i18n="services.name1">Residential Architecture</h3>
+          <p class="service-desc" data-i18n="services.desc1">We design homes that articulate private life with the natural environment. Each home is a unique work, conceived from the dialogue between the inhabitant and the territory.</p>
+          <div class="service-tags">
+            <span class="service-tag" data-i18n="stag.single">Single-family</span>
+            <span class="service-tag" data-i18n="stag.multi">Multi-unit</span>
+            <span class="service-tag" data-i18n="stag.luxury">Luxury</span>
+            <span class="service-tag" data-i18n="stag.sustain">Sustainable</span>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <span class="service-number">02</span>
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <rect x="8" y="4" width="32" height="40"/>
+            <line x1="8" y1="14" x2="40" y2="14"/><line x1="8" y1="24" x2="40" y2="24"/>
+            <line x1="8" y1="34" x2="40" y2="34"/>
+            <line x1="20" y1="4" x2="20" y2="44"/><line x1="30" y1="4" x2="30" y2="44"/>
+            <rect x="2" y="40" width="44" height="4" fill="currentColor" stroke="none"/>
+          </svg>
+          <h3 class="service-name" data-i18n="services.name2">Commercial Architecture</h3>
+          <p class="service-desc" data-i18n="services.desc2">Corporate, commercial and institutional spaces that communicate brand identity through built form. Strategic design with high experiential impact.</p>
+          <div class="service-tags">
+            <span class="service-tag" data-i18n="stag.office">Offices</span>
+            <span class="service-tag" data-i18n="stag.retail">Retail</span>
+            <span class="service-tag" data-i18n="stag.hotel">Hospitality</span>
+            <span class="service-tag" data-i18n="stag.inst">Institutional</span>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <span class="service-number">03</span>
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="8"/>
+            <line x1="24" y1="6" x2="24" y2="16"/><line x1="24" y1="32" x2="24" y2="42"/>
+            <line x1="6" y1="24" x2="16" y2="24"/><line x1="32" y1="24" x2="42" y2="24"/>
+            <path d="M12 12 L18 18"/><path d="M30 30 L36 36"/>
+          </svg>
+          <h3 class="service-name" data-i18n="services.name3">Interior Design</h3>
+          <p class="service-desc" data-i18n="services.desc3">Integral intervention of interior space: materials, light, furniture and atmosphere. We question the conventional to build unique sensory experiences.</p>
+          <div class="service-tags">
+            <span class="service-tag" data-i18n="stag.res">Residential</span>
+            <span class="service-tag" data-i18n="stag.com">Commercial</span>
+            <span class="service-tag">FF&amp;E</span>
+            <span class="service-tag" data-i18n="stag.light">Lighting</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       MAP / LOCATION
+  ════════════════════════════════════════════ -->
+  <section class="map-section reveal" id="location" aria-label="Studio Location">
+    <div class="map-info">
+      <p class="section-label" data-i18n="map.label">Location</p>
+      <h2 class="map-title" data-i18n="map.title">Find Us</h2>
+      <address class="map-address">
+        Portimão<br/>
+        Algarve · Portugal<br/>
+        <span class="map-coords">37°08′N · 8°32′O</span>
+      </address>
+      <p class="map-hours" data-i18n="map.hours">Mon–Fri · 9h–18h</p>
+      <a href="https://maps.google.com/?q=37.1365,-8.5385"
+         class="map-link" target="_blank" rel="noopener noreferrer"
+         data-i18n="map.directions">Get Directions →</a>
+    </div>
+    <div class="map-embed">
+      <iframe
+        class="map-iframe"
+        src="https://maps.google.com/maps?q=Av.+Afonso+Henriques,+8500-507+Portim%C3%A3o,+Portugal&z=15&output=embed"
+        width="100%" height="100%"
+        style="border:0;display:block;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Concept Arquitectos location"
+        aria-label="Google Maps showing Concept Arquitectos in Portimão, Portugal">
+      </iframe>
+      <div class="map-overlay-label">
+        <span>Concept Arquitectos</span>
+        <span data-i18n="map.studio">Architecture Studio · Portimão</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CONTACT
+  ════════════════════════════════════════════ -->
+  <section class="contact" id="contact" aria-label="Contact">
+    <div class="contact-inner">
+      <div class="contact-left reveal-left">
+        <p class="section-label" data-i18n="contact.label">Let's Begin</p>
+        <h2 class="contact-headline" data-i18n-html="contact.headline">
+          Let's make<br/><em>something</em><br/>real
+        </h2>
+        <p class="contact-desc" data-i18n="contact.desc">Every great project begins with a conversation. Tell us your vision — we'll find the form.</p>
+        <div class="contact-direct">
+          <a href="mailto:geral@conceptarquitectos.com">geral@conceptarquitectos.com</a>
+          <a href="tel:+351282096097">+351 282 096 097</a>
+          <a href="https://maps.google.com/?q=Concept+Arquitectos+Portimão" target="_blank" rel="noopener">Edifício Oceanário Residence,<br/>Av. Afonso Henriques, 8500-507 Portimão</a>
+        </div>
+      </div>
+
+      <div class="contact-right reveal-right">
+        <form class="contact-form" id="contactForm" novalidate>
+
+          <div class="form-field">
+            <input type="text" id="name" name="name" placeholder="." autocomplete="name" required />
+            <label for="name" data-i18n="contact.field.name">Full name</label>
+          </div>
+
+          <div class="form-field">
+            <input type="email" id="email" name="email" placeholder="." autocomplete="email" required />
+            <label for="email" data-i18n="contact.field.email">Email address</label>
+          </div>
+
+          <div class="form-field">
+            <select id="projectType" name="projectType" required>
+              <option value="" disabled selected></option>
+              <option value="residential" data-i18n="contact.opt.residential">Residential</option>
+              <option value="commercial"  data-i18n="contact.opt.commercial">Commercial</option>
+              <option value="interior"    data-i18n="contact.opt.interior">Interior Design</option>
+              <option value="urbanism"    data-i18n="contact.opt.urbanism">Urbanism</option>
+              <option value="consult"     data-i18n="contact.opt.consult">General Inquiry</option>
+            </select>
+            <label for="projectType" data-i18n="contact.field.type">Project type</label>
+          </div>
+
+          <div class="form-field">
+            <textarea id="message" name="message" placeholder="." rows="4" required></textarea>
+            <label for="message" data-i18n="contact.field.message">Tell us about your project</label>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn-submit">
+              <span data-i18n="contact.submit">Start a Project</span>
+              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M1 17L17 1M17 1H5M17 1v12"/>
+              </svg>
+            </button>
+            <span class="form-note" data-i18n="contact.note">We respond within 24–48 hours</span>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-brand">
+      <img class="footer-logo logo-v-light" src="images/logo-light.png" alt="Concept Arquitectos" />
+      <img class="footer-logo logo-v-dark"  src="images/logo-dark.jpg"  alt="" aria-hidden="true"/>
+      <div class="tagline" data-i18n="footer.tagline">Architecture as Experience</div>
+    </div>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#about"    data-i18n="nav.studio">Studio</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#team"     data-i18n="nav.team">Team</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#contact"  data-i18n="nav.contact">Contact</a>
+    </nav>
+
+    <div class="footer-right">
+      <div class="footer-social" aria-label="Social media">
+        <a href="https://www.facebook.com/conceptarquitectos/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/company/concept-arquitectos" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2.5"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="Pinterest">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="17" height="17" aria-hidden="true">
+            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/>
+            <path d="M9 10.5a3.5 3.5 0 1 1 5.47 2.9"/>
+            <line x1="11.8" y1="13.4" x2="10.2" y2="19.5"/>
+          </svg>
+        </a>
+      </div>
+      <p class="footer-copy" data-i18n="footer.copy">© 2024 Concept Arquitectos · Portimão, Portugal</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
