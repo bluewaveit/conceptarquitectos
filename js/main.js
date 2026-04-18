@@ -360,7 +360,7 @@ const projectData = [
   {
     en: { title: 'Open Sky Residence', category: 'Residential', status: 'Built', concept: 'A home that dissolves into the Caribbean landscape. The program fragments into pavilions connected by floating horizontal planes, generating total permeability between inside and outside.', narrative: 'The project begins with an essential question: can a house be simultaneously shelter and watchtower? The answer was to build in layers — a succession of thresholds from the most private to the infinite horizon of the sea.', vision: 'Materials were chosen for their capacity to age with dignity. Concrete records the passage of time; wood gains character. Architecture as a living process.' },
     pt: { title: 'Residência Céu Aberto', category: 'Residencial', status: 'Construído', concept: 'Uma habitação que se dissolve na paisagem caribenha. O programa fragmenta-se em pavilhões ligados por planos horizontais flutuantes, gerando uma permeabilidade total entre interior e exterior.', narrative: 'O projeto nasce de uma questão essencial: pode uma casa ser simultaneamente refúgio e miradouro? A resposta foi construir em camadas — uma sucessão de limiares que vão do mais privado ao horizonte infinito do mar.', vision: 'Os materiais foram selecionados pela sua capacidade de envelhecer com dignidade. O betão regista a passagem do tempo; a madeira ganha carácter. A arquitetura como processo vivo.' },
-    year: '2023', location: 'Punta Cana, Dominican Republic',
+    year: '2023', location: 'Portimão, Algarve, Portugal',
     area: '620 m²', materials: 'Exposed concrete · Laminated glass · Teak wood',
     heroImg: 'images/470571901_9114091031990644_3914962260874532592_n.jpg',
     img1: 'images/471158464_9114091275323953_2797154666458548224_n.jpg', img2: 'images/details.jpg'
@@ -368,7 +368,7 @@ const projectData = [
   {
     en: { title: 'Vértice Tower', category: 'Corporate', status: 'Built', concept: 'A tower that redefines corporate presence on the Santiago skyline. The slightly conical section optimises floor area while reducing wind load on upper floors.', narrative: "The client asked for 'presence'. We proposed 'precision'. Every detail of the modular façade was developed to create a changing light pattern throughout the day — a living surface.", vision: "Corporate architecture doesn't have to be anonymous. Vértice Tower is a symbol of a company that bets on design as a differential value." },
     pt: { title: 'Torre Vértice', category: 'Corporativo', status: 'Construído', concept: 'Uma torre que redefine a presença corporativa no skyline de Santiago. A secção ligeiramente cónica optimiza a planta útil enquanto reduz a carga de vento nos pisos superiores.', narrative: 'O cliente pediu "presença". Nós propusemos "precisão". Cada detalhe da fachada modular foi desenvolvido para criar um padrão de luz variável ao longo do dia — uma superfície viva.', vision: 'A arquitetura corporativa não tem de ser anónima. A Torre Vértice é o símbolo de uma empresa que aposta no design como valor diferencial.' },
-    year: '2022', location: 'Santiago, Dominican Republic',
+    year: '2022', location: 'Portimão, Algarve, Portugal',
     area: '8,400 m²', materials: 'Tempered glass · Structural steel · Anodised aluminium',
     heroImg: 'images/471158464_9114091275323953_2797154666458548224_n.jpg',
     img1: 'images/470571901_9114091031990644_3914962260874532592_n.jpg', img2: 'images/131273270_3738645572868577_4171945136956633290_n.jpg'
@@ -376,7 +376,7 @@ const projectData = [
   {
     en: { title: 'Root Pavilion', category: 'Cultural', status: 'Built', concept: 'A cultural pavilion rooted in Dominican constructive tradition. Local timber and bamboo define a community gathering space that dialogues with topography and vegetation.', narrative: "The brief was simple: create a space for art and culture in the heart of the Yaque valley. The answer was complex: a building that grows from the earth, not upon it.", vision: 'Sustainability not as certification, but as ethics. Every material is local, every building technique is regional. The pavilion employs local craftspeople and will continue to do so throughout its life.' },
     pt: { title: 'Pavilhão Raiz', category: 'Cultural', status: 'Construído', concept: 'Um pavilhão cultural enraizado na tradição construtiva dominicana. Estruturas de madeira local e bambu definem um espaço de reunião comunitária que dialoga com a topografia e a vegetação.', narrative: 'A encomenda era simples: criar um espaço para a arte e a cultura no coração do vale do Yaque. A resposta foi complexa: um edifício que cresce da terra, não sobre ela.', vision: 'Sustentabilidade não como certificação, mas como ética. Cada material é local, cada técnica construtiva é regional. O pavilhão emprega artesãos da zona e continuará a fazê-lo durante a sua vida útil.' },
-    year: '2023', location: 'Jarabacoa, Dominican Republic',
+    year: '2023', location: 'Portimão, Algarve, Portugal',
     area: '380 m²', materials: 'Local timber · Treated bamboo · Rammed earth',
     heroImg: 'images/130824417_3738645486201919_8523422455263461037_n.jpg',
     img1: 'images/130923255_3738645492868585_1490597373984909298_n.jpg', img2: 'images/131095912_3738645562868578_8281928021500282238_n.jpg'
@@ -384,7 +384,7 @@ const projectData = [
   {
     en: { title: 'Casa Umbra', category: 'Residential', status: 'Built', concept: 'A brutally honest residence. The mass concrete walls are not concealed — they are celebrated. Openings are strategically positioned to create dramatic shadow plays throughout the day.', narrative: 'Casa Umbra was born from a fascination with shadow as a design material. In the tropics, shadow is as important as light. Here, both are architecture.', vision: 'In an environment of hedonistic tourist architecture, Casa Umbra proposes the opposite: austerity as luxury. Restraint as the highest expression.' },
     pt: { title: 'Casa Umbra', category: 'Residencial', status: 'Construído', concept: 'Uma residência brutalmente honesta. Os muros de betão em massa não se dissimulam — celebram-se. As aberturas estão estrategicamente posicionadas para criar jogos de sombra dramáticos ao longo do dia.', narrative: 'A Casa Umbra nasceu de uma fascinação com a sombra como material de design. Nos trópicos, a sombra é tão importante quanto a luz. Aqui, ambas são arquitetura.', vision: 'Num ambiente de arquitetura turística e hedonista, a Casa Umbra propõe o oposto: austeridade como luxo. A contenção como máxima expressão.' },
-    year: '2021', location: 'Las Terrenas, Dominican Republic',
+    year: '2021', location: 'Portimão, Algarve, Portugal',
     area: '450 m²', materials: 'Mass concrete · River stone · Black steel',
     heroImg: 'images/130923255_3738645492868585_1490597373984909298_n.jpg',
     img1: 'images/130824417_3738645486201919_8523422455263461037_n.jpg', img2: 'images/131273270_3738645572868577_4171945136956633290_n.jpg'
@@ -392,7 +392,7 @@ const projectData = [
   {
     en: { title: 'Quórum Centre', category: 'Institutional', status: 'Built', concept: "A conference centre designed for the Latin American community in Miami. The architecture articulates the tension between cultural identity and international vocation.", narrative: 'The project was conceived as a "contemporary agora" — a space where ideas meet, debate and transform. The free plan and movable partitions allow total versatility.', vision: 'Quórum is our first international work and marks a milestone in the studio\'s trajectory. We prove that Dominican architecture can compete and win in any market.' },
     pt: { title: 'Centro Quórum', category: 'Institucional', status: 'Construído', concept: 'Um centro de conferências projetado para a comunidade latino-americana em Miami. A arquitetura articula a tensão entre identidade cultural e vocação internacional.', narrative: 'O projeto foi concebido como uma "ágora contemporânea" — um espaço onde as ideias se encontram, debatem e transformam. A planta livre e as divisórias móveis permitem uma versatilidade total.', vision: 'O Quórum é a nossa primeira obra internacional e marca um marco na projeção do estúdio. Demonstramos que a arquitetura dominicana pode competir e ganhar em qualquer mercado.' },
-    year: '2022', location: 'Miami, United States',
+    year: '2022', location: 'Portimão, Algarve, Portugal',
     area: '3,200 m²', materials: 'White concrete · Low-emission glass · Black granite',
     heroImg: 'images/131095912_3738645562868578_8281928021500282238_n.jpg',
     img1: 'images/131273270_3738645572868577_4171945136956633290_n.jpg', img2: 'images/details.jpg'
@@ -400,7 +400,7 @@ const projectData = [
   {
     en: { title: 'Mirror Studio', category: 'Commercial', status: 'Under construction', concept: "A commercial and creative space that plays with the duality of reflection and opacity. The mirrored glass façade dialogues with the urban environment, transforming the street into part of the architectural programme.", narrative: "Mirror Studio was born from the question: what happens when a building doesn't want to look at itself, but at the world? The answer was an architecture that looks outward with a surface that reflects everything back.", vision: 'The project marks the beginning of a new commercial typology in Santo Domingo — a hybrid between art gallery, workspace and brand experience.' },
     pt: { title: 'Estúdio Espelho', category: 'Comercial', status: 'Em construção', concept: 'Um espaço comercial e criativo que joga com a dualidade reflexo-opacidade. A fachada de vidro espelhado dialoga com o ambiente urbano, transformando a rua em parte do programa arquitetónico.', narrative: 'O Estúdio Espelho nasceu da questão: o que acontece quando um edifício não quer ver-se a si mesmo, mas ao mundo? A resposta foi uma arquitetura que olha para fora com uma superfície que tudo devolve.', vision: 'O projeto marca o início de uma nova tipologia comercial em Santo Domingo — um híbrido entre galeria de arte, espaço de trabalho e experiência de marca.' },
-    year: '2024', location: 'Santo Domingo, Dominican Republic',
+    year: '2024', location: 'Portimão, Algarve, Portugal',
     area: '1,100 m²', materials: 'Mirror glass · Polished concrete · Corten steel',
     heroImg: 'images/131273270_3738645572868577_4171945136956633290_n.jpg',
     img1: 'images/details.jpg', img2: 'images/470571901_9114091031990644_3914962260874532592_n.jpg'
