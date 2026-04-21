@@ -3,9 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Concept Arquitectos — Architecture as Experience</title>
-  <meta name="description" content="Concept Arquitectos — Contemporary architecture studio. We design spaces that challenge perception and transform the way we inhabit the world." />
+  <title>Concept Arquitectos — Architecture Studio in the Algarve | Portimão, Portugal</title>
+  <meta name="description" content="Award-winning architecture studio based in Portimão, Algarve. Specialists in residential, commercial and renovation architecture across Portugal. Est. 2010." />
+  <meta name="keywords" content="architect Algarve, arquitecto Portimão, architecture studio Algarve, residential architecture Portugal, commercial architecture Algarve, renovations Algarve, arquitecto Algarve, licenciamento arquitetura" />
+  <link rel="canonical" href="https://www.conceptarquitectos.com/" />
+  <meta property="og:title" content="Concept Arquitectos — Architecture Studio in the Algarve" />
+  <meta property="og:description" content="Award-winning architecture studio in Portimão, Algarve. Residential, commercial and renovation projects across Portugal. Est. 2010." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="pt_PT" />
   <link rel="icon" href="images/favicon.png" type="image/png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ArchitecturalFirm",
+    "name": "Concept Arquitectos",
+    "description": "Contemporary architecture studio based in Portimão, Algarve. Specialists in residential, commercial and renovation architecture.",
+    "url": "https://www.conceptarquitectos.com",
+    "telephone": "+351282096097",
+    "email": "geral@conceptarquitectos.com",
+    "foundingDate": "2010",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Edifício Oceanário Residence, Av. Afonso Henriques",
+      "addressLocality": "Portimão",
+      "addressRegion": "Algarve",
+      "postalCode": "8500-507",
+      "addressCountry": "PT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 37.136,
+      "longitude": -8.533
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "sameAs": [
+      "https://www.facebook.com/conceptarquitectos/",
+      "https://www.linkedin.com/company/concept-arquitectos"
+    ]
+  }
+  </script>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -83,7 +125,7 @@
         <li><a href="#contact"  class="nav-link-item" data-i18n="nav.contact">Contact</a></li>
       </ul>
       <div class="overlay-nav-meta">
-        <span>© 2024</span>
+        <span>© 2025</span>
         <span>Portimão, Portugal</span>
       </div>
     </div>
@@ -491,6 +533,14 @@
       <h1 class="hero-headline" data-i18n-html="hero.headline">
         Where<br/><em>Space</em><br/>Thinks
       </h1>
+      <p class="hero-value-prop" data-i18n="hero.valueprop">Modern architecture in the Algarve — designed for comfort, efficiency and long-term value.</p>
+      <div class="hero-services-row" aria-hidden="true">
+        <span class="hero-service-pill" data-i18n="hero.pill1">Residential</span>
+        <span class="hero-sep">·</span>
+        <span class="hero-service-pill" data-i18n="hero.pill2">Commercial</span>
+        <span class="hero-sep">·</span>
+        <span class="hero-service-pill" data-i18n="hero.pill3">Renovations</span>
+      </div>
     </div>
 
     <div class="hero-bottom">
@@ -498,12 +548,17 @@
         <div class="scroll-line"></div>
         <span data-i18n="hero.scroll">Explore</span>
       </div>
-      <a href="#projects" class="hero-cta" aria-label="View projects">
-        <span data-i18n="hero.cta">View Projects</span>
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M1 13L13 1M13 1H4M13 1v9"/>
-        </svg>
-      </a>
+      <div class="hero-cta-group">
+        <a href="#contact" class="hero-cta hero-cta--primary">
+          <span data-i18n="hero.consultation">Request a Consultation</span>
+        </a>
+        <a href="#projects" class="hero-cta" aria-label="View projects">
+          <span data-i18n="hero.cta">View Projects</span>
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M1 13L13 1M13 1H4M13 1v9"/>
+          </svg>
+        </a>
+      </div>
       <div class="hero-coords" aria-label="Studio coordinates">
         37°08′N 8°32′O<br/>
         Portimão<br/>
@@ -569,6 +624,7 @@
             <div class="stat-label" data-i18n="about.stat4">Countries of work</div>
           </div>
         </div>
+        <a href="#contact" class="about-cta reveal" data-i18n="about.cta">Start a Project →</a>
       </div>
     </div>
     <svg style="position:absolute;bottom:0;right:3rem;width:300px;height:200px;opacity:0.15;" viewBox="0 0 300 200" aria-hidden="true">
@@ -753,12 +809,91 @@
   </section>
 
   <!-- ═══════════════════════════════════════
+       TESTIMONIALS
+  ════════════════════════════════════════════ -->
+  <section class="testimonials" id="testimonials" aria-label="Client testimonials">
+    <div class="testimonials-inner">
+      <p class="section-label reveal" data-i18n="testimonials.label">Client Voices</p>
+      <h2 class="testimonials-title reveal" data-i18n="testimonials.title">What Our Clients Say</h2>
+
+      <!-- Google Rating Bar -->
+      <div class="testimonials-rating-bar reveal">
+        <div class="rating-google-badge">
+          <svg class="rating-google-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          <span class="rating-google-label">Google Reviews</span>
+        </div>
+        <div class="rating-score-group">
+          <span class="rating-number">5.0</span>
+          <div class="rating-stars-big" aria-label="5 out of 5 stars">★★★★★</div>
+          <span class="rating-count" data-i18n="testimonials.count">2 verified reviews</span>
+        </div>
+      </div>
+
+      <div class="testimonials-grid stagger">
+
+        <blockquote class="testimonial-item">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar" aria-hidden="true">MA</div>
+            <div class="testimonial-meta">
+              <strong class="testimonial-author">Miguel Ángel Gómez</strong>
+              <span class="testimonial-source">Local Guide · Google</span>
+            </div>
+            <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote">"They are a group of serious and friendly architects. They are very professional."</p>
+          <footer class="testimonial-footer">
+            <span class="testimonial-project">Portimão · Google Review</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="testimonial-item">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar" aria-hidden="true">EM</div>
+            <div class="testimonial-meta">
+              <strong class="testimonial-author">Emanuel Mendes</strong>
+              <span class="testimonial-source">Local Guide · Google</span>
+            </div>
+            <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote" data-i18n="testimonials.quote2">"Concept Arquitectos handled everything — design, licensing, and project management. We never had to worry about the bureaucracy."</p>
+          <footer class="testimonial-footer">
+            <span class="testimonial-project" data-i18n="testimonials.project2">Atlantic Terraces · Portimão, 2024</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="testimonial-item">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar" aria-hidden="true">RC</div>
+            <div class="testimonial-meta">
+              <strong class="testimonial-author" data-i18n="testimonials.author3">Residential Client</strong>
+              <span class="testimonial-source" data-i18n="testimonials.source3">Portimão, Algarve</span>
+            </div>
+            <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote" data-i18n="testimonials.quote3">"The renovation transformed our 1980s property into something we are truly proud of. On budget, on time."</p>
+          <footer class="testimonial-footer">
+            <span class="testimonial-project" data-i18n="testimonials.project3">Algarve Residence · Portimão, 2025</span>
+          </footer>
+        </blockquote>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
        SERVICES
   ════════════════════════════════════════════ -->
   <section class="services" id="services" aria-label="Services">
     <div class="services-inner">
       <p class="section-label reveal" data-i18n="services.label">What We Do</p>
       <h2 class="services-title reveal" data-i18n="services.title">Services</h2>
+      <p class="services-subtitle reveal" data-i18n="services.subtitle">We handle the full process — from concept to approval.</p>
 
       <div class="services-grid stagger">
 
@@ -816,11 +951,105 @@
           </div>
         </div>
 
+        <div class="service-item">
+          <span class="service-number">04</span>
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <rect x="10" y="4" width="28" height="40"/>
+            <line x1="16" y1="14" x2="32" y2="14"/>
+            <line x1="16" y1="20" x2="32" y2="20"/>
+            <line x1="16" y1="26" x2="26" y2="26"/>
+            <circle cx="33" cy="35" r="7"/>
+            <path d="M30 35 L32.5 37.5 L37 32.5" stroke-width="1.2"/>
+          </svg>
+          <h3 class="service-name" data-i18n="services.name4">Project Licensing</h3>
+          <p class="service-desc" data-i18n="services.desc4">Full management of architectural licensing and regulatory approval. We navigate Portuguese planning law so your project reaches construction on time.</p>
+          <div class="service-tags">
+            <span class="service-tag" data-i18n="stag.licensing">Permitting</span>
+            <span class="service-tag" data-i18n="stag.planning">Urban Planning</span>
+            <span class="service-tag" data-i18n="stag.compliance">Regulatory</span>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <span class="service-number">05</span>
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <path d="M4 26 L24 8 L44 26"/>
+            <rect x="10" y="26" width="28" height="16"/>
+            <rect x="20" y="32" width="8" height="10"/>
+            <line x1="34" y1="18" x2="34" y2="10"/>
+            <line x1="30" y1="10" x2="38" y2="10"/>
+            <path d="M35 26 L43 18" stroke-width="1.2"/>
+            <circle cx="40" cy="21" r="3.5"/>
+          </svg>
+          <h3 class="service-name" data-i18n="services.name5">Renovations &amp; Extensions</h3>
+          <p class="service-desc" data-i18n="services.desc5">Thoughtful transformation of existing buildings — from historic renovation to contemporary extension. We maximise value while respecting what is already there.</p>
+          <div class="service-tags">
+            <span class="service-tag" data-i18n="stag.reno">Historic</span>
+            <span class="service-tag" data-i18n="stag.ext">Extensions</span>
+            <span class="service-tag" data-i18n="stag.refurb">Refurbishment</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FAQ
+  ════════════════════════════════════════════ -->
+  <section class="faq" id="faq" aria-label="Frequently asked questions">
+    <div class="faq-inner">
+      <p class="section-label reveal" data-i18n="faq.label">Common Questions</p>
+      <h2 class="faq-title reveal" data-i18n="faq.title">FAQ</h2>
+
+      <div class="faq-list">
+
+        <details class="faq-item reveal">
+          <summary class="faq-question">
+            <span data-i18n="faq.q1">How long does a typical project take, from first meeting to completion?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <p class="faq-answer" data-i18n="faq.a1">It depends on the scope. A residential renovation typically takes 6–12 months; a new villa from concept to move-in is usually 18–30 months, including licensing. We give you a clear timeline at the first consultation.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-question">
+            <span data-i18n="faq.q2">Do you manage architectural licensing and planning approvals in Portugal?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <p class="faq-answer" data-i18n="faq.a2">Yes — this is one of our core services. We handle all submissions to the Câmara Municipal, including project licensing (licença de obras), technical reports, and coordination with planning authorities. Our team knows Algarve planning regulations in detail.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-question">
+            <span data-i18n="faq.q3">Do you work outside the Algarve?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <p class="faq-answer" data-i18n="faq.a3">Our primary focus is the Algarve region, where we have deep knowledge of local planning rules and construction standards. We do take selected projects in the wider Alentejo and Lisbon areas — contact us to discuss your project.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-question">
+            <span data-i18n="faq.q4">What do I need to bring to a first consultation?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <p class="faq-answer" data-i18n="faq.a4">Just your ideas and any references or sketches you have. If you already have a plot or property, its details (location, area, existing plans if available) are useful. We do the technical work — you just need to bring your vision.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-question">
+            <span data-i18n="faq.q5">Do you offer consultancy for projects already in progress?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <p class="faq-answer" data-i18n="faq.a5">Yes. If your project is already underway and you need a second opinion, technical review, or help with licensing, we offer consultancy sessions. Contact us to arrange a call.</p>
+        </details>
+
       </div>
     </div>
   </section>
 
 
+  
   <!-- ═══════════════════════════════════════
        MAP / LOCATION
   ════════════════════════════════════════════ -->
@@ -856,6 +1085,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- ═══════════════════════════════════════
        CONTACT
