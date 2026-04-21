@@ -1906,6 +1906,9 @@ body::after {
   .service-item { border-right: none !important; border-top: none !important; border-bottom: 1px solid rgba(0,0,0,0.15); padding-left: 0 !important; padding-right: 0 !important; }
   .service-item:first-child { border-bottom: 1px solid rgba(0,0,0,0.15); }
   .testimonials { padding: 5rem 1.5rem; }
+  .testimonials-rating-bar { width: 100%; flex-wrap: wrap; gap: 1rem; padding: 1rem 1.25rem; box-sizing: border-box; }
+  .rating-google-badge { border-right: none; padding-right: 0; padding-bottom: 0.75rem; border-bottom: 1px solid var(--gray-md); width: 100%; }
+  .rating-score-group { flex-wrap: wrap; gap: 0.5rem; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .contact-inner { padding: 0 1.5rem; }
   .footer { grid-template-columns: 1fr; }
